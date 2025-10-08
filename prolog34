@@ -1,0 +1,9 @@
+% Disease and recommended diet
+diet(diabetes, 'Eat more vegetables, whole grains, avoid sugar').
+diet(hypertension, 'Reduce salt intake, avoid oily food, eat fruits').
+diet(obesity, 'Low calorie diet, more salads, avoid junk food').
+diet(anemia, 'Iron-rich food like spinach, beetroot, jaggery').
+diet(cold, 'Vitamin C rich food like orange, lemon, amla').
+
+% Rule
+suggest_diet(Disease, Diet) :- diet(Disease, Diet).
