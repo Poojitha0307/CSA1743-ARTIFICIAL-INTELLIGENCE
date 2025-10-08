@@ -1,0 +1,26 @@
+% Best First Search Example
+edge(a, b, 4).
+edge(a, c, 2).
+edge(b, d, 5).
+edge(c, d, 1).
+edge(d, goal, 3).
+
+heuristic(a, 7).
+heuristic(b, 6).
+heuristic(c, 2).
+heuristic(d, 1).
+heuristic(goal, 0).
+
+best_first(Node, Goal, Path) :- bfs([[Node]], Goal, Path).
+
+bfs([[Goal|Path]|_], Goal, [Goal|Path]).
+bfs([Path|Paths], Goal, Solution) :-
+    extend(Path, NewPaths),
+    append(Paths, NewPaths, Paths1),
+    sort(Paths1, Paths2),  % Sort by heuristic
+    bfs(Paths2, Goal, Solution).
+
+extend([Node|Path], NewPaths) :-
+    findall([NewNode,Node|Path],
+            (edge(Node, NewNode, _), \+ member(NewNode, [Node|Path])),
+            NewPaths).
