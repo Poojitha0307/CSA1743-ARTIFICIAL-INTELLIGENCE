@@ -1,0 +1,11 @@
+fact(sunny).
+fact(hot).
+
+rule([sunny, hot], go(swimming)).
+rule([sunny, cold], go(jogging)).
+rule([rainy], go(sleeping)).
+
+forward_chain(Action) :-
+    fact(sunny),
+    fact(hot),
+    rule([sunny, hot], Action).
