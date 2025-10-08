@@ -1,0 +1,11 @@
+symptom(john, fever).
+symptom(john, cough).
+symptom(john, tiredness).
+
+disease(flu) :- symptom(_, fever), symptom(_, cough).
+disease(covid) :- symptom(_, fever), symptom(_, cough), symptom(_, tiredness).
+disease(malaria) :- symptom(_, fever), symptom(_, chills).
+
+diagnose(Person, Disease) :- 
+    disease(Disease),
+    symptom(Person, _).
