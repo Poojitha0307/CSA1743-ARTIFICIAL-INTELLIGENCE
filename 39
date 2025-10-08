@@ -1,0 +1,11 @@
+% Facts
+fact(sunny).
+fact(hot).
+
+% Rules
+goal(go(swimming)) :- fact(sunny), fact(hot).
+goal(go(jogging)) :- fact(sunny), fact(cold).
+goal(go(sleeping)) :- fact(rainy).
+
+% Backward chaining query
+backward_chain(Action) :- goal(Action).
