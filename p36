@@ -1,0 +1,7 @@
+fruit_color(apple, red).
+fruit_color(mango, yellow).
+fruit_color(grapes, green).
+fruit_color(orange, orange).
+fruit_color(blueberry, blue).
+
+% Query with backtracking will give multiple answers
