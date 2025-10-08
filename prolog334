@@ -1,0 +1,18 @@
+% State representation: state(MonkeyPosition, HasBanana?)
+% Initial state
+state(at_door, no).
+
+% Actions
+move(at_door, middle).
+move(middle, at_window).
+move(at_window, middle).
+move(middle, at_door).
+
+% Monkey climbs the box
+action(state(middle, no), climb_box, state(middle, no_box)).
+
+% Monkey grabs banana
+action(state(middle, no_box), grab_banana, state(middle, yes)).
+
+% Solution: find sequence
+can_get_banana(State) :- action(State, grab_banana, state(_, yes)).
